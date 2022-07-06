@@ -16,6 +16,5 @@ public class MvcMemberFormServlet extends HttpServlet {
         String viewPath = "/WEB-INF/views/new-form.jsp"; // Controller를 거쳐서 보여지는 JSP 파일은 WEB-INF 폴더에 만들어야함 (WAS에서 정한 규칙)
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);// Controller에서 view로 이동
         dispatcher.forward(request, response); // 서버 안에서 내부적으로 화면까지 생성해서 클라이언트에 전달
-
     }
 }
