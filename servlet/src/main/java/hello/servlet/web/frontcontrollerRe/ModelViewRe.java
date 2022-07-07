@@ -6,6 +6,7 @@ import lombok.Setter;
 import java.util.HashMap;
 import java.util.Map;
 
+
 @Getter
 @Setter
 public class ModelViewRe {
@@ -15,4 +16,5 @@ public class ModelViewRe {
     public ModelViewRe(String viewName) {
         this.viewName = viewName;
     }
+
 }

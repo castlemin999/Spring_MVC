@@ -2,6 +2,7 @@ package hello.servlet.web.frontcontrollerRe.v3;
 
 import hello.servlet.web.frontcontrollerRe.ModelViewRe;
 import hello.servlet.web.frontcontrollerRe.MyViewRe;
+import hello.servlet.web.frontcontrollerRe.v3.ControllerV3Re;
 import hello.servlet.web.frontcontrollerRe.v3.controller.MemberFormControllerV3Re;
 import hello.servlet.web.frontcontrollerRe.v3.controller.MemberListControllerV3Re;
 import hello.servlet.web.frontcontrollerRe.v3.controller.MemberSaveControllerV3Re;
@@ -28,27 +29,24 @@ public class FrontControllerServletV3Re extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String requestURI = request.getRequestURI();
+        ControllerV3Re controller = controllerV3ReMap.get(requestURI);
 
         Map<String, String> paramMap = createParamMap(request);
-
-        ControllerV3Re controller = controllerV3ReMap.get(requestURI);
         ModelViewRe mv = controller.process(paramMap);
 
         MyViewRe view = viewResolver(mv);
         view.render(mv.getModel(), request, response);
-
     }
-
-    private MyViewRe viewResolver(ModelViewRe mv) {
-        String viewPath = "/WEB-INF/views/" + mv.getViewName() + ".jsp";
-        return new MyViewRe(viewPath);
-    }
-
 
     private Map<String, String> createParamMap(HttpServletRequest request) {
         Map<String, String> paramMap = new HashMap<>();
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
         return paramMap;
+    }
+
+    private MyViewRe viewResolver(ModelViewRe mv) {
+        String viewPath = "/WEB-INF/views/" + mv.getViewName() + ".jsp";
+        return new MyViewRe(viewPath);
     }
 }
