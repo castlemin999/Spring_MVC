@@ -23,7 +23,7 @@ public class MemberSaveControllerV1 implements ControllerV1 {
         Member member = new Member(username, age);
         memberRepository.save(member);
 
-        //Model에 데이터를 보관한다.
+        // Model에 데이터를 보관한다.
         request.setAttribute("member", member);
         String viewPath = "/WEB-INF/views/save-result.jsp";
 

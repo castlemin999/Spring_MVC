@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb7d1b8f-af09-460a-9ab2-45f13e646ba9" name="Changes" comment="" />
+    <list default="true" id="fb7d1b8f-af09-460a-9ab2-45f13e646ba9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +46,13 @@
       <option name="presentableId" value="Default" />
       <updated>1656983628948</updated>
       <workItem from="1656983629650" duration="28000" />
+      <workItem from="1657152779137" duration="40000" />
+      <workItem from="1657152838944" duration="51000" />
+      <workItem from="1657152918866" duration="36000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

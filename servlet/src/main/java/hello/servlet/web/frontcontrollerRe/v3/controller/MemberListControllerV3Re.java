@@ -10,14 +10,13 @@ import java.util.Map;
 
 public class MemberListControllerV3Re implements ControllerV3Re {
 
-    private MemberRepository memberRepository = MemberRepository.getInstance();
+    MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override
     public ModelViewRe process(Map<String, String> paramMap) {
         List<Member> members = memberRepository.findAll();
         ModelViewRe mv = new ModelViewRe("members");
         mv.getModel().put("members", members);
-
         return mv;
     }
 }

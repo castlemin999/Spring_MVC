@@ -9,10 +9,10 @@ import java.util.Map;
 @Getter
 @Setter
 public class ModelViewRe {
-    private String viewPath;
+    private String viewName;
     private Map<String, Object> model = new HashMap<>();
 
-    public ModelViewRe(String viewPath) {
-        this.viewPath = viewPath;
+    public ModelViewRe(String viewName) {
+        this.viewName = viewName;
     }
 }

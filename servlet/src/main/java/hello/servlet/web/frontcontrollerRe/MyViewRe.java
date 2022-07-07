@@ -4,12 +4,11 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.rowset.serial.SerialException;
 import java.io.IOException;
-import java.lang.reflect.InaccessibleObjectException;
 import java.util.Map;
 
 public class MyViewRe {
+
     private String viewPath;
 
     public MyViewRe(String viewPath) {
@@ -21,7 +20,9 @@ public class MyViewRe {
         dispatcher.forward(request, response);
     }
 
-    public void render(Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) {
-        paramMap.forEach((key, value) -> paramMap.put(key, value));
+    public void render(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        model.forEach((key, value) -> request.setAttribute(key, value));
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
+        dispatcher.forward(request, response);
     }
 }
