@@ -1,7 +1,7 @@
 package hello.servlet.web.frontcontrollerRe.v5.adapter;
 
 import hello.servlet.web.frontcontrollerRe.ModelViewRe;
-import hello.servlet.web.frontcontrollerRe.v3.ControllerV3Re;
+import hello.servlet.web.frontcontrollerRe.v4.ControllerV4Re;
 import hello.servlet.web.frontcontrollerRe.v5.MyHandlerAdapterRe;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,22 +9,27 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ControllerV3HandlerAdapterRe implements MyHandlerAdapterRe {
+public class ControllerV4HandlerAdapterRe implements MyHandlerAdapterRe {
 
     @Override
     public boolean supports(Object handler) {
-        return handler instanceof ControllerV3Re;
+        return handler instanceof ControllerV4Re;
     }
 
     @Override
     public ModelViewRe handle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        ControllerV3Re controller = (ControllerV3Re) handler;
-        Map<String, String> paramMap = createParamMap(request);
+        ControllerV4Re controller = (ControllerV4Re) handler;
 
-        ModelViewRe mv = controller.process(paramMap);
+        Map<String, String> paramMap = createParamMap(request);
+        Map<String, Object> model = new HashMap<>();
+
+        String viewName = controller.process(paramMap, model);
+        ModelViewRe mv = new ModelViewRe(viewName);
+
+        mv.setModel(model);
+
         return mv;
     }
-
 
     private Map<String, String> createParamMap(HttpServletRequest request) {
         Map<String, String> paramMap = new HashMap<>();
