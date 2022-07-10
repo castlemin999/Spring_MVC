@@ -34,7 +34,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/STUDY/Spring_MVC/servlet"
+    "last_opened_file_path": "/Users/csm/Study/Java/SpringMVC",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -49,6 +53,7 @@
       <workItem from="1657152779137" duration="40000" />
       <workItem from="1657152838944" duration="51000" />
       <workItem from="1657152918866" duration="36000" />
+      <workItem from="1657429128785" duration="123000" />
     </task>
     <servers />
   </component>
