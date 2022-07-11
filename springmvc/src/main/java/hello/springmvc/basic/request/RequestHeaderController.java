@@ -26,7 +26,6 @@ public class RequestHeaderController {
 
         // MultiValueMap 하나의 키에 여러 값을 받을 수 있다.
 
-
         log.info("request={}", request);
         log.info("response={}", response);
         log.info("httpMethod={}", httpMethod);

@@ -25,7 +25,7 @@ public class RequestParamController {
         response.getWriter().write("ok");
     }
 
-    @ResponseBody // viewresolver 찾지 않고 메시지 바디에 바로 보냄
+    @ResponseBody // ViewResolver 찾지 않고 메시지 바디에 바로 보냄
     @RequestMapping("/request-param-v2")
     public String requestParamV2(
             @RequestParam("username") String memberName,
@@ -43,8 +43,7 @@ public class RequestParamController {
         return "ok";
     }
 
-    // String, int, Integer등의 단순 타입이면 @RequestParam 생략 가능
-    // But 뇌절
+    // String, int, Integer등의 단순 타입이면 @RequestParam 생략 가능 But 뇌절
     @ResponseBody
     @RequestMapping("/request-param-v4")
     public String requestParamV4(String username, int age) {
