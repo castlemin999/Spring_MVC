@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
@@ -26,12 +27,26 @@ public class BasicItemController {
         return "basic/items";
     }
 
+    @GetMapping("/{itemId}")
+    public String item(@PathVariable Long itemId, Model model) {
+        Item item = itemRepository.findById(itemId);
+        model.addAttribute("item", item);
+        return "basic/item";
+    }
+
+
+
+
+
+
+
+
     @PostConstruct
     public void init() {
         itemRepository.save(new Item("itemA", 1000, 1));
-        itemRepository.save(new Item("itemB", 2000, 1));
-        itemRepository.save(new Item("itemC", 3000, 1));
-        itemRepository.save(new Item("itemD", 4000, 1));
+        itemRepository.save(new Item("itemB", 2000, 2));
+        itemRepository.save(new Item("itemC", 3000, 3));
+        itemRepository.save(new Item("itemD", 4000, 4));
     }
 
 }
