@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -39,11 +40,41 @@ public class BasicItemController {
         return "basic/addForm";
     }
 
-    @PostMapping("/add")
-    public String add(@ModelAttribute Item item, Model model) {
+//    @PostMapping("/add")
+    public String addV1(@ModelAttribute Item item, Model model) {
         Item savedItem = itemRepository.save(item);
         model.addAttribute("item", savedItem);
         return "redirect:" + savedItem.getId();
+    }
+
+//    @PostMapping("/add")
+    public String addV2(@ModelAttribute Item item, Model model) {
+        Item savedItem = itemRepository.save(item);
+        model.addAttribute("item", savedItem);
+        return "basic/item";
+    }
+
+//    @PostMapping("/add")
+    public String addV3(@ModelAttribute Item item) {
+        itemRepository.save(item);
+        //model.addAttribute("item", savedItem); @ModelAttribute 써서 알아서 Model에 넣어줌
+        return "basic/item";
+    }
+
+//    @PostMapping("/add")
+    public String addV4(@ModelAttribute Item item) {
+        itemRepository.save(item);
+        return "redirect:/basic/items/" + item.getId(); // 새로고침 자동 등록되는것을 방지
+    }
+
+    @PostMapping("/add")
+    public String addV5(@ModelAttribute Item item, RedirectAttributes redirectAttributes) {
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId()); // url encoding 해줌
+        redirectAttributes.addAttribute("status", true); //
+        return "redirect:/basic/items/{itemId}";
+        // redirectAttributes.addAttribute에 값이 있으면 치환 되고 없으면 쿼리 파라미터로 넘어간다.
+        // 화면에서 사용함
     }
 
     @GetMapping("{itemId}/edit")
